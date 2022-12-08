@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: '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', url: 'https://github.com/shreyasaxena2k/myJan2021Repo']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/shreyasaxena2k/myJan2021Repo']]])
             }
         }
         
