@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/shreyasaxena2k/myJan2021Repo']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/shreyasaxena2k/myJan2021Repo.git']]])
             }
         }
         
@@ -20,7 +20,7 @@ pipeline {
         
         stage ('Code Quality') {
         steps {
-            withSonarQubeEnv('My_SonarQube') {
+            withSonarQubeEnv('central-sonar-01') {
             sh 'mvn -f MyWebApp/pom.xml sonar:sonar'
             }
         }
